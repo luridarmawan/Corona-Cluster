@@ -54,7 +54,7 @@ function populateKabkot() {
   */
  //LOAD JSON INTO VARIABLE
  $.ajax({
-   url: "/GeoJSON/UMKSBHJawa.geojson",
+   url: "/UMK%20SHB%20Jawa%20Map/GeoJSON/UMKSBHJawa.geojson",
    dataType:  "json",
    type: "get",
    cache: false,
@@ -86,7 +86,7 @@ function populateKabkot1() {
   */
  //LOAD JSON INTO VARIABLE
  $.ajax({
-   url: "/GeoJSON/UMKSBHJawa.geojson",
+   url: "/UMK%20SHB%20Jawa%20Map/GeoJSON/UMKSBHJawa.geojson",
    dataType:  "json",
    type: "get",
    cache: false,
