@@ -1,22 +1,6 @@
 //============================================================================================================
 var width = 1280;
 var height = 400;
-
-var a = 0;
-
-var url = 'https://louislugas.github.io/umk-sbh-jawa-map/GeoJSON/UMKSBHJawa.geojson';
-
-var projection = d3.geoMercator()
-  .scale(6000)
-  .translate([-10950,-600]);
-
-var path = d3.geoPath()
-  .projection(projection);
-
-var canvas = d3.select(".infographic").append("svg")
-  .attr("width",width)
-  .attr("height",height);
-
 var upah;
 var scale;
 var scaleWarna;
@@ -30,6 +14,23 @@ var biayaAnak;
 var areas;
 var group;
 
+var a = 0;
+
+var url = 'https://louislugas.github.io/umk-sbh-jawa-map/GeoJSON/UMKSBHJawa.geojson';
+
+var projection = d3.geoMercator()
+  .scale(6000)
+  .translate([-10950,-600]);
+
+var path = d3.geoPath()
+  .projection(projection);
+
+//CANVAS-INFOGRAPHIC==========================================================================================
+var canvas = d3.select(".infographic").append("svg")
+  .attr("width",width)
+  .attr("height",height);
+
+//TOOLTIP=====================================================================================================
 var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0)
@@ -59,6 +60,9 @@ function populateKabkot() {
    type: "get",
    cache: false,
    success: function(data) {
+     $(data.features).sort(function(a,b){
+       return a.properties.KABKOT > b.properties.KABKOT;
+     })
      $(data.features).each(function(index, value) {
        //console.log(value.properties.KABKOT); --- TEST CONSOLE
        var dataKabkot = (value.properties.KABKOT);
