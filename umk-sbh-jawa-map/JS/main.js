@@ -38,19 +38,11 @@ var div = d3.select("body").append("div")
     .attr("height",300)
     .attr("fill","red");
 
-//LEGEND======================================================================================================
+//LEGEND=====================================================================================================
 var legend = d3.select("#legend").append("svg")
   .attr("width",200)
   .attr("height",250)
   .attr("fill","salmon)";
-
-var dataLegend = ([0,1,2,3,4,5,6,7,8,9]);
-
-canvas.selectAll("rect")
-  .data(dataLegend)
-  .enter()
-  .append("rect")
-  .attr("fill","grey");
 
 //============================================================================================================
 
@@ -210,6 +202,16 @@ function inputDataform(){
       .transition()
       .duration(750)
       .style("fill",function(d,i) {return scaleWarna(selisihFinal[i]); })
+
+//LEGEND============================================
+      canvas.selectAll("rect")
+        .data(scaleWarna.range())
+        .enter()
+        .append("rect")
+        .attr("fill",function (i) { return colore(i); });
+        .attr("x", function (i) {for (i=1; i <= scaleWarna.range().length; i++)
+        { return (i * 12) + "px"; }
+        })
   });
 
   //DATA PRINT
