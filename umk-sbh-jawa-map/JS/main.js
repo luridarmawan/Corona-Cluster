@@ -39,20 +39,15 @@ var div = d3.select("body").append("div")
     .attr("fill","red");
 
 //LEGEND======================================================================================================
-var colorScale = d3.scale.linear()
-  .range(["red", "blue"])
-  .domain([10,500])
-  .interpolate(d3.interpolateLab);
+var legend = d3.select("#legend").append("svg")
+  .attr("width",400)
+  .attr("height",400);
 
-var legend = d3.select("#legend")
-  .append("svg")
-  .chart("HorizontalLegend")
-  .height(20)
-  .width(300)
-  .padding(4)
-  .boxes(30);
-
-legend.draw(colorScale);
+canvas.selectAll("rect")
+  .data([0,1,2,3,4,5,6,7,8,9])
+  .enter()
+  .append("rect")
+  .attr("fill","grey");
 
 //============================================================================================================
 
