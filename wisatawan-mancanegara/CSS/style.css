@@ -19,8 +19,8 @@ div.background-image {
 }
 
 .container-infographic{
-  position:relative;
-  border: 3px solid red;
+  position:absolute;
+
   height: 871px;
   width: 490px;
   margin:auto;
