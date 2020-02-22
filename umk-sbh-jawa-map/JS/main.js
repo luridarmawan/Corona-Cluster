@@ -437,7 +437,7 @@ d3.json(url).then(function(dataset){
   selisihMin = d3.min(selisih);
   selisihMax = d3.max(selisih);
 
-/* TEST CONSOLE
+
   console.log(biayaHidup);
   console.log(selisih);
   console.log(upahMin);
@@ -445,7 +445,7 @@ d3.json(url).then(function(dataset){
   console.log(selisihMin);
   console.log(selisihMax);
   console.log(upah);
-*/
+
 
   scaleWarna = d3.scaleLinear()
     .range(["red","yellow","green"])
