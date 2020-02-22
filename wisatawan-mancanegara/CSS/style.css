@@ -57,6 +57,7 @@ p.textsumber{
 
 h1{
   font-family: Oswald;
+  font-color: #015288;
 }
 
 .slider {
@@ -99,7 +100,7 @@ h1{
 }
 
 .xAxisStyle text{
-  fill: red;
+  fill: #fe6a3c;
 }
 
 #popUpTextBang {
