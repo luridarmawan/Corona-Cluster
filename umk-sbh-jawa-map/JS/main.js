@@ -416,7 +416,7 @@ d3.json(url).then(function(dataset){
   upahMin = d3.min(upah);
   upahMax = d3.max(upah);
   selisihMin = d3.min(selisih);
-  selisihMax = d3.max(selisih)
+  selisihMax = d3.max(selisih);
 
 /* TEST CONSOLE
   console.log(biayaHidup);
