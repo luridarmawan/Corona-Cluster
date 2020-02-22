@@ -442,7 +442,7 @@ d3.json(url).then(function(dataset){
 
   scaleWarna = d3.scaleLinear()
     .range(["red","yellow","green"])
-    .domain([selisihMin,0,3000000])
+    .domain([selisihMin,0,5000000])
 
   group = canvas.selectAll("g")
     .data(dataset.features)
