@@ -29,10 +29,8 @@
   </head>
 
   <body>
-    <div class="cont">
-    <img class="background-image" src="https://louislugas.github.io/wisatawan-mancanegara/Infog-background-01.png">
     <div class="container">
-
+      <img class="background-image" src="https://louislugas.github.io/wisatawan-mancanegara/Infog-background-01.png">
       <div class="container-infographic">
 
         <div class="logo">
@@ -254,7 +252,7 @@
                   .append('text')
                   .classed('.valueText', true)
                   .text(function ( d ) { return formatNum ( d[year] ); })
-                  .style('fill','darkgrey')
+                  .style('fill','black')
                   .style('font-family','lato')
                   .style('font-size', '10pt')
                   .attr('x',function ( d ) { return widthScale( d[year] ) + 15; })
@@ -269,10 +267,10 @@
                   .text(year)
                   .style('font-family','lato black')
                   .style('font-size', '50pt')
-                  .style('fill','#98d9d9')
+                  .style('fill','#fe6a3c')
                   .style('text-align','center')
-                  .attr('x',svgWidth / 2 -50 )
-                  .attr('y',svgHeight / 6 * 5 )
+                  .attr('x',svgWidth / 2+50 )
+                  .attr('y',svgHeight / 6 * 2.8 )
                   ;
 
 

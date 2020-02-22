@@ -4,14 +4,16 @@ body{
   padding:0;
 }
 
-.cont{
+.container{
   position:relative;
   border: 3px solid red;
-  width: 500px;
+  width: 490px;
+  height: 871px;
   margin:auto;
 }
 
 .background-image {
+  display: inline;
   position: absolute;
   z-index: -100;
 }
