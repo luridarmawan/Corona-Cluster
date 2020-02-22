@@ -44,6 +44,16 @@ var legend = d3.select("#legend").append("svg")
   .attr("height",250)
   .attr("fill","salmon)";
 
+
+canvas.selectAll("rect")
+  .data(scaleWarna.range())
+  .enter()
+  .append("rect")
+  .attr("fill",function (i) { return colore(i); });
+  .attr("x", function (i) {for (i=1; i <= scaleWarna.range().length; i++)
+  { return (i * 12) + "px"; }
+  })
+
 //============================================================================================================
 
 $("#play").click(function() {
@@ -203,15 +213,6 @@ function inputDataform(){
       .duration(750)
       .style("fill",function(d,i) {return scaleWarna(selisihFinal[i]); })
 
-//LEGEND============================================
-      canvas.selectAll("rect")
-        .data(scaleWarna.range())
-        .enter()
-        .append("rect")
-        .attr("fill",function (i) { return colore(i); });
-        .attr("x", function (i) {for (i=1; i <= scaleWarna.range().length; i++)
-        { return (i * 12) + "px"; }
-        })
   });
 
   //DATA PRINT
