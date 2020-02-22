@@ -40,8 +40,8 @@ var div = d3.select("body").append("div")
 
 //LEGEND======================================================================================================
 var legend = d3.select("#legend").append("svg")
-  .attr("width",400)
-  .attr("height",400)
+  .attr("width",200)
+  .attr("height",250)
   .attr("fill","salmon)";
 
 var dataLegend = ([0,1,2,3,4,5,6,7,8,9]);
