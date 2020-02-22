@@ -46,7 +46,7 @@ var legend = d3.select("#legend").append("svg")
 
 scaleWarna = d3.scaleLinear()
   .range(["red","yellow","green"])
-  .domain([-10000000,0,5000000])
+  .domain([-10000000,0,5000000]);
 
 legend.selectAll('rect')
   .data([-10000000,0,5000000])
