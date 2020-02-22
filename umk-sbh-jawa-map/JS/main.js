@@ -44,6 +44,18 @@ var legend = d3.select("#legend").append("svg")
   .attr("height",250)
   .attr("fill","salmon");
 
+scaleWarna = d3.scaleLinear()
+  .range(["red","yellow","green"])
+  .domain([-10000000,0,5000000])
+
+legend.selectAll('rect')
+  .data([-10000000,0,5000000])
+  .enter()
+  .attr("fill", function (d) { return d })
+  .attr("y", function (d,i) { return (scaleWarna[i] * 12) + "px" })
+  .attr("width", "10px")
+  .attr("height", "10px");
+
 
 
 //============================================================================================================
