@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <head>
+    <meta charset="utf-8">
+
+    <!-- LOAD D3.JS -->
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+
+    <!-- LOAD BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- LOAD BOOTSTRAP JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- LOAD CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- LOAD FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <title>D3.js Exercise</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container-infographic">
+        <div class="logo">
+          <img src="/logo-tirto-01.svg" alt="logo tirto">
+        </div>
+        <div class="sumber">
+          <p class="textsumber">
+            Sumber : Riset<br>
+            <strong>LGS</strong>
+          </p>
+        </div>
+
+        <div class="infographic">
+          <h1>Akumulasi Kunjungan<br>
+            Wisatawan Mancanegara<br>
+             ke Indonesia 2009-2018</h1>
+          <!-- Action Button -->
+          <div>
+            <div>
+              <button id="btnRepeat" type="button" class="btn btn-sm" aria-label="Repeat" onclick="resetData()">
+                <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+              </button>
+
+              <button id="btnRepeat" type="button" class="btn btn-sm" aria-label="Repeat" onclick="previousData()">
+                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+              </button>
+
+            <!--  <button id="btnRepeat" type="button" class="btn btn-sm" aria-label="Repeat" onclick="pauseData()">
+                <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+              </button> -->
+
+              <button id="btnRepeat" type="button" class="btn btn-sm" aria-label="Repeat" onclick="playData()">
+                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+              </button>
+
+              <button id="btnRepeat" type="button" class="btn btn-sm" aria-label="Repeat" onclick="updateData()">
+                <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+              </button>
+            </div>
+
+
+<!--            <div class="slidecontainer">
+              <input type="range" value="0" min="0" max="9" class="slider" id="myRange" onchange="slideData()">
+            </div>
+            <p>Value: <span id="demo"></span></p> -->
+          </div>
+
+<!-- ====================================================================================== -->
+
+          <script>
+
+            var year = 2009;
+            //Declare Size Variable
+            var svgWidth = 450, svgHeight =650, barPadding = 5;
+
+            //Container Canvas
+            var canvas = d3.select('.infographic')
+              .append('svg')
+              .attr('width', svgWidth)
+              .attr('height', svgHeight)
+              .attr('y', 120);
+
+            var maxData;
+            var widthScale;
+            var barHeight;
+            var barChart;
+            var barText;
+            var yearText;
+            var counter = 0;
+            var xAxis;
+            var x;
+            var formatNum;
+            var band;
+            var kebangsaan;
+            var wilayah
+            var warna;
+
+
+//SORTING FUNCTION ===========================================================================
+
+/*
+            band = d3.scaleBand()
+              .domain(dataset.map(function(d){
+                  return d.key;
+              }));
+
+            function sortData() {
+              dataset.sort(function(a,b) {
+                return d3.descending(a[year],b[year]);
+              });
+              band.domain(data.map(function(d) {
+                return d.Kebangsaan;
+            }));
+          };
+*/
+//START PAGE==================================================================================
+
+            //Get JSON Data
+            d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+
+              formatNum = d3.format(',d');
+
+              kebangsaan = dataset.map(function (d) { return d.Kebangsaan; });
+              wilayah = dataset.map(function (d) { return d.Wilayah;});
+
+              warna = d3.scaleOrdinal(d3.schemeCategory10);
+
+              console.log(warna);
+
+              console.log(year);
+              console.log(dataset);
+              console.log(kebangsaan);
+              console.log(wilayah);
+
+              console.log(kebangsaan[20]);
+              console.log(wilayah[15]);
+
+              maxData = d3.max(dataset, function(d) { return d[year]; });
+              widthScale = d3.scaleLinear()
+                .domain([0,maxData])
+                .range([0,svgWidth - 100]);
+
+              console.log(formatNum(maxData));
+
+              //console.log(length);
+              barHeight = (svgHeight / (dataset.length +1));
+              //console.log(barHeight);
+
+              //X Axis Variable
+              xAxis = d3.axisTop()
+                .scale(widthScale)
+                .tickSize(-svgHeight)
+                .ticks(7)
+                .tickFormat(d3.formatPrefix(".1", 1e6))
+                ;
+
+              //X Axis
+              x = canvas
+                .append('g')
+                .attr('transform', 'translate(10,10)')
+                .attr('class', 'xAxisStyle')
+                .call(xAxis)
+                ;
+
+              //Bar Chart
+              barChart = canvas.selectAll('rect')
+                .data(dataset.sort(function(a, b) {
+                  return d3.descending( a[year], b[year]);
+                }))
+                .enter()
+                  .append('rect')
+                  .attr('class', 'bar')
+                  .attr('width', function ( d ) {
+                    return widthScale( d[year] ); })
+                  .attr('height', barHeight - barPadding)
+                  .attr('x',10)
+                  .attr('y',function ( d , i ) {
+                    return i * barHeight + barHeight; })
+                  .style('fill', function ( d , i ) {
+                    return warna(wilayah[i]);
+                  })
+                  .on('mouseover', function (d ,i) {
+                    d3.select(this)
+                      .transition()
+                      .duration(150)
+                      .style('fill','red')
+                    canvas.append('rect')
+                      .attr('x',100)
+                      .attr('y',100)
+                      .style('fill','black')
+                      ;
+                    canvas.append('text')
+                      .attr('id','popUpTextBang')
+                      .style('fill','black')
+                      .style('font-family', 'lato light')
+                      .style('font-size','14pt')
+                      .text(kebangsaan[i])
+                      .attr('x',svgWidth / 2 - 50)
+                      .attr('y',220)
+                      ;
+                    canvas.selectAll("tspan.text")
+                      .data(kebangsaan[i].split("\n"))
+                      .enter()
+                      .append("tspan")
+                      .attr("class", "text")
+                      .text(kebangsaan[i])
+                      .attr("dx", 10)
+                      .attr("dy", 22)
+                      ;
+                    canvas.append('text')
+                      .attr('id','popUpTextWil')
+                      .style('fill','black')
+                      .style('font-family','lato black')
+                      .style('font-size','10pt')
+                      .style('alignment','center')
+                      .text(wilayah[i])
+                      .attr('x',svgWidth / 2 - 50)
+                      .attr('y',200);
+                  })
+                  .on('mouseout', function ( d , i ) {
+                    d3.select(this)
+                      .transition()
+                      .duration(500)
+                      .style('fill', warna(wilayah[i]));
+                    d3.select('#popUpTextWil')
+                      .remove();
+                    d3.select('#popUpTextBang')
+                      .remove();
+                  })
+                  ;
+
+              //Bar Text Value
+              barText = canvas.selectAll('.valueText')
+                .data(dataset)
+                .enter()
+                  .append('text')
+                  .classed('.valueText', true)
+                  .text(function ( d ) { return formatNum ( d[year] ); })
+                  .style('fill','red')
+                  .style('font-family','lato')
+                  .style('font-size', '10pt')
+                  .attr('x',function ( d ) { return widthScale( d[year] ) + 15; })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight - barPadding + 16; })
+                  ;
+
+              yearText = canvas.selectAll('.valueYear')
+                .data(dataset)
+                .enter()
+                  .append('text')
+                  .classed('.valueYear', true)
+                  .text(year)
+                  .style('font-family','lato black')
+                  .style('font-size', '50pt')
+                  .style('fill','#98d9d9')
+                  .style('text-align','center')
+                  .attr('x',svgWidth / 2 -50 )
+                  .attr('y',svgHeight / 6 * 5 )
+                  ;
+
+
+                });
+
+
+//PAUSE========================================================================================
+
+            /*function pauseData() {
+
+              canvas.selectAll('*')
+              .interrupt();
+
+              barChart.selectAll('*')
+              .interrupt();
+
+              barText.selectAll('*')
+              .interrupt();
+
+              yearText.selectAll('*')
+              .interrupt();*/
+
+            /*  x = canvas.selectAll('g.xAxisStyle')
+                .interrupt()
+                .transition()
+                .duration(0)
+                ;
+
+              barChart
+                .interrupt()
+                .transition()
+                .duration(0)
+                ;
+
+              barText
+                .interrupt()
+                .transition()
+                .duration(0)
+                ;
+
+              yearText
+                .interrupt()
+                .transition()
+                .duration(0)
+                ;*/
+
+        //    };
+
+//============================================================================================
+
+            function updateData() {
+
+
+              //Get JSON Data again
+              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+                console.log(year);
+                if (year < 2018)
+                  year = year + 1;
+                console.log(year);
+
+                //Update widthScale
+                maxData = d3.max(dataset, function(d) { return d[year]; });
+                widthScale = d3.scaleLinear()
+                  .domain([0,maxData])
+                  .range([0,svgWidth - 100])
+                  ;
+                //Update Test
+                console.log(maxData);
+                console.log(widthScale(100));
+
+                //X Axis Variable Update
+                xAxis = d3.axisTop()
+                  .scale(widthScale)
+                  .tickSize(-svgHeight)
+                  .ticks(7)
+                  .tickFormat(d3.formatPrefix(".1", 1e6))
+                  ;
+
+                //X Axis Update
+                x = canvas.selectAll('g.xAxisStyle')
+                  .transition()
+                  .duration(750)
+                  .call(xAxis.bind(this))
+                  ;
+
+                //Update Test
+                console.log(widthScale(100));
+
+                barChart
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .attr('width', function ( d ) { return widthScale ( d[year] ); })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight; })
+                  ;
+
+                barText
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .text(function (d) { return formatNum (d[year]); })
+                  .attr('x',function (d) { return widthScale( d[year] ) + 15; })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight - barPadding + 16; })
+                  ;
+
+                yearText.transition()
+                  .duration(750)
+                  .text(year)
+                  ;
+
+                counter++;
+
+
+                //barChart.select('.bar')
+                  //.duration(750)
+                  //.attr('width', function ( d ) { return widthScale ( d[2010] ); });
+                });
+            };
+
+//==========================================================================================
+
+            function resetData() {
+
+              counter = 0;
+              //Get JSON Data again
+              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+
+                year = 2009;
+
+                maxData = d3.max(dataset, function(d) { return d[year]; });
+                widthScale = d3.scaleLinear()
+                  .domain([0,maxData])
+                  .range([0,svgWidth - 100]);
+
+                //X Axis Variable Update
+                xAxis = d3.axisTop()
+                  .scale(widthScale)
+                  .tickSize(-svgHeight)
+                  .ticks(7)
+                  .tickFormat(d3.formatPrefix(".1", 1e6))
+                  ;
+
+                //X Axis Update
+                x = canvas.selectAll('g.xAxisStyle')
+                  .transition()
+                  .duration(750)
+                  .call(xAxis.bind(this))
+                  ;
+
+                barChart
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .attr('width', function ( d ) { return widthScale ( d[year] ); })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight; })
+                  ;
+
+                barText
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .text(function (d) { return formatNum (d[year]); })
+                  .attr('x',function (d) { return widthScale( d[year] )+ 15; })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight - barPadding + 16; })
+                  ;
+
+                yearText
+                .transition()
+                .duration(750)
+                .text(2009)
+                ;
+
+                counter = 0;
+
+                //barChart.select('.bar')
+                  //.duration(750)
+                  //.attr('width', function ( d ) { return widthScale ( d[2010] ); });
+                });
+            };
+
+//============================================================================================
+
+            function playData() {
+
+
+              //Get JSON Data again
+              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+
+
+                if(dataset[ counter + 1 ]) {
+
+                  if( counter == 10 ) {
+                    return;
+                };
+
+                  d3.timeout(playData,750);
+
+              };
+
+                console.log(year);
+                year = counter + 2009;
+                console.log(year);
+
+                maxData = d3.max(dataset, function(d) { return d[year]; });
+                widthScale = d3.scaleLinear()
+                  .domain([0,maxData])
+                  .range([0,svgWidth - 100]);
+
+                //X Axis Variable Update
+                xAxis = d3.axisTop()
+                  .scale(widthScale)
+                  .tickSize(-svgHeight)
+                  .ticks(7)
+                  .tickFormat(d3.formatPrefix(".1", 1e6))
+                  ;
+
+                //X Axis Update
+                x = canvas.selectAll('g.xAxisStyle')
+                  .transition()
+                  .duration(750)
+                  .call(xAxis.bind(this))
+                  ;
+
+                barChart
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .attr('width', function ( d ) { return widthScale ( d[year] ); })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight; })
+                  ;
+
+                barText
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .text(function (d) { return formatNum (d[year]); })
+                  .attr('x',function (d) { return widthScale( d[year] ) + 15; })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight - barPadding + 16; })
+                  ;
+
+                yearText.transition()
+                  .duration(750)
+                  .text(year)
+                  ;
+
+                  console.log(widthScale(100));
+
+                counter++
+
+                });
+
+
+            };
+
+//==========================================================================================
+
+            function previousData() {
+
+              //Get JSON Data again
+              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+                console.log(year);
+                if (year > 2009)
+                  year = year - 1;
+                console.log(year);
+
+                //Update widthScale
+                maxData = d3.max(dataset, function(d) { return d[year]; });
+                widthScale = d3.scaleLinear()
+                  .domain([0,maxData])
+                  .range([0,svgWidth - 100])
+                  ;
+                //Update Test
+                console.log(maxData);
+                console.log(widthScale(100));
+
+                //X Axis Variable Update
+                xAxis = d3.axisTop()
+                  .scale(widthScale)
+                  .tickSize(-svgHeight)
+                  .ticks(7)
+                  .tickFormat(d3.formatPrefix(".1", 1e6))
+                  ;
+
+                //X Axis Update
+                x = canvas.selectAll('g.xAxisStyle')
+                  .transition()
+                  .duration(750)
+                  .call(xAxis.bind(this))
+                  ;
+
+                //Update Test
+                console.log(widthScale(100));
+
+                barChart
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .attr('width', function ( d ) { return widthScale ( d[year] ); })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight; })
+                  ;
+
+                barText
+                  .sort((a,b) => d3.descending(a[year], b[year]))
+                  .transition()
+                  .duration(750)
+                  .text(function (d) { return formatNum (d[year]); })
+                  .attr('x',function (d) { return widthScale( d[year] ) + 15; })
+                  .attr('y',function ( d , i ) { return i * barHeight + barHeight - barPadding + 16; })
+                  ;
+
+                yearText.transition()
+                  .duration(750)
+                  .text(year)
+                  ;
+
+                counter--;
+
+                //barChart.select('.bar')
+                  //.duration(750)
+                  //.attr('width', function ( d ) { return widthScale ( d[2010] ); });
+                });
+            };
+
+//==========================================================================================
+
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
