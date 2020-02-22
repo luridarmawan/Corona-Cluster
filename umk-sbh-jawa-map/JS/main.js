@@ -4,7 +4,7 @@ var height = 400;
 
 var a = 0;
 
-var url = 'GeoJSON/UMKSBHJawa.geojson';
+var url = '/UMK%20SHB%20Jawa%20Map/GeoJSON/UMKSBHJawa.geojson';
 
 var projection = d3.geoMercator()
   .scale(6000)
@@ -54,7 +54,7 @@ function populateKabkot() {
   */
  //LOAD JSON INTO VARIABLE
  $.ajax({
-   url: "/GeoJSON/UMKSBHJawa.geojson",
+   url: "/UMK%20SHB%20Jawa%20Map/GeoJSON/UMKSBHJawa.geojson",
    dataType:  "json",
    type: "get",
    cache: false,
@@ -86,7 +86,7 @@ function populateKabkot1() {
   */
  //LOAD JSON INTO VARIABLE
  $.ajax({
-   url: "/GeoJSON/UMKSBHJawa.geojson",
+   url: "/UMK%20SHB%20Jawa%20Map/GeoJSON/UMKSBHJawa.geojson",
    dataType:  "json",
    type: "get",
    cache: false,
@@ -339,7 +339,7 @@ function inputDataform1(){
 
   //DATA PRINT
   $.ajax({
-    url: "/GeoJSON/UMKSBHJawa.geojson",
+    url: "/UMK%20SHB%20Jawa%20Map/GeoJSON/UMKSBHJawa.geojson",
     dataType:  "json",
     type: "get",
     cache: false,
