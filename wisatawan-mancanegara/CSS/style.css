@@ -9,7 +9,6 @@ body{
 
 .container{
   position:relative;
-  border: 3px solid red;
   width: 490px;
   height: 871px;
   margin:auto;
