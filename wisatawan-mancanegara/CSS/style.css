@@ -7,6 +7,12 @@ body{
 .container{
   padding:0;
 }
+
+.container img {
+  position:relative;
+  margin:auto;
+}
+
 .container-infographic{
   position:relative;
   border: 3px solid red;

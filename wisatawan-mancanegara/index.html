@@ -128,7 +128,7 @@
 //START PAGE==================================================================================
 
             //Get JSON Data
-            d3.json('url').then(function(dataset){
+            d3.json(url).then(function(dataset){
 
               formatNum = d3.format(',d');
 
@@ -321,7 +321,7 @@
 
 
               //Get JSON Data again
-              d3.json('url').then(function(dataset){
+              d3.json(url).then(function(dataset){
                 console.log(year);
                 if (year < 2018)
                   year = year + 1;
@@ -392,7 +392,7 @@
 
               counter = 0;
               //Get JSON Data again
-              d3.json('url').then(function(dataset){
+              d3.json(url).then(function(dataset){
 
                 year = 2009;
 
@@ -453,7 +453,7 @@
 
 
               //Get JSON Data again
-              d3.json('url').then(function(dataset){
+              d3.json(url).then(function(dataset){
 
 
                 if(dataset[ counter + 1 ]) {
@@ -526,7 +526,7 @@
             function previousData() {
 
               //Get JSON Data again
-              d3.json('url').then(function(dataset){
+              d3.json(url).then(function(dataset){
                 console.log(year);
                 if (year > 2009)
                   year = year - 1;
