@@ -7,10 +7,15 @@ body{
 .container{
   padding:0;
 }
-
-.background-image {
-  position:absolute;
+.cont{
+  position:relative;
+  border: 3px solid red;
+  width: 500px;
   margin:auto;
+}
+div.background-image {
+  position: absolute;
+  z-index: -100;
 }
 
 .container-infographic{
@@ -22,7 +27,7 @@ body{
 }
 
 .infographic{
-  border:  3px solid black;
+
   height: 100%;
   width: 100%;
   margin: auto;
@@ -32,7 +37,7 @@ body{
 }
 
 .logo{
-  border: 3px solid red;
+
   height: 46px;
   width: 36px;
   position: absolute;
@@ -41,7 +46,7 @@ body{
 }
 
 .sumber{
-  border: 3px solid red;
+
   height: 46px;
   width: 125px;
   position: absolute;
@@ -61,9 +66,9 @@ p.textsumber{
   margin-top: 0;
 }
 
-h1{
+.infographic h1{
   font-family: Oswald;
-  font-color: #015288;
+  color: #015288;
 }
 
 .slider {

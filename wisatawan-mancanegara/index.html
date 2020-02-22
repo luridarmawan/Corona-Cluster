@@ -29,9 +29,12 @@
   </head>
 
   <body>
+    <div class="cont">
+    <img class="background-image" src="https://louislugas.github.io/wisatawan-mancanegara/Infog-background-01.png">
     <div class="container">
+
       <div class="container-infographic">
-        <img class="background-image" src="https://louislugas.github.io/wisatawan-mancanegara/Infog-background-01.png">
+
         <div class="logo">
           <img src="https://louislugas.github.io/wisatawan-mancanegara/logo-tirto-01.svg" alt="logo tirto">
         </div>
@@ -75,6 +78,7 @@
               <input type="range" value="0" min="0" max="9" class="slider" id="myRange" onchange="slideData()">
             </div>
             <p>Value: <span id="demo"></span></p> -->
+          </div>
           </div>
 
 <!-- ====================================================================================== -->
@@ -187,6 +191,7 @@
                     return widthScale( d[year] ); })
                   .attr('height', barHeight - barPadding)
                   .attr('x',10)
+                  .style('z-index', 100)
                   .attr('y',function ( d , i ) {
                     return i * barHeight + barHeight; })
                   .style('fill', function ( d , i ) {
