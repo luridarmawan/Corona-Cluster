@@ -49,10 +49,10 @@ canvas.selectAll("rect")
   .data(scaleWarna.range())
   .enter()
   .append("rect")
-  .attr("fill",function (i) { return colore(i); });
+  .attr("fill",function (i) { return scaleWarna.range(i); })
   .attr("x", function (i) {for (i=1; i <= scaleWarna.range().length; i++)
   { return (i * 12) + "px"; }
-});
+  });
 
 //============================================================================================================
 
