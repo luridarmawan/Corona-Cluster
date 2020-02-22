@@ -42,7 +42,7 @@ var div = d3.select("body").append("div")
 var legend = d3.select("#legend").append("svg")
   .attr("width",200)
   .attr("height",250)
-  .attr("fill","salmon)";
+  .attr("fill","salmon");
 
 
 canvas.selectAll("rect")
