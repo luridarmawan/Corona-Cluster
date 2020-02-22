@@ -197,6 +197,8 @@ function inputDataform(){
     selisihMin = d3.min(selisihFinal);
     selisihMax = d3.max(selisihFinal)
 
+    console.log(selisihMin);
+
     scaleWarna = d3.scaleLinear()
       .range(["red","yellow","green"])
       .domain([selisihMin,0,5000000])
