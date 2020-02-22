@@ -41,10 +41,13 @@ var div = d3.select("body").append("div")
 //LEGEND======================================================================================================
 var legend = d3.select("#legend").append("svg")
   .attr("width",400)
-  .attr("height",400);
+  .attr("height",400)
+  .attr("fill","salmon)";
+
+var dataLegend = ([0,1,2,3,4,5,6,7,8,9]);
 
 canvas.selectAll("rect")
-  .data([0,1,2,3,4,5,6,7,8,9])
+  .data(dataLegend)
   .enter()
   .append("rect")
   .attr("fill","grey");
