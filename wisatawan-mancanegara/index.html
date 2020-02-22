@@ -20,7 +20,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- LOAD CUSTOM CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://louislugas.github.io/wisatawan-mancanegara/CSS/style.css">
 
     <!-- LOAD FONT -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     <div class="container">
       <div class="container-infographic">
         <div class="logo">
-          <img src="/logo-tirto-01.svg" alt="logo tirto">
+          <img src="https://louislugas.github.io/wisatawan-mancanegara/logo-tirto-01.svg" alt="logo tirto">
         </div>
         <div class="sumber">
           <p class="textsumber">
@@ -127,7 +127,7 @@
 //START PAGE==================================================================================
 
             //Get JSON Data
-            d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+            d3.json('https://louislugas.github.io/wisatawan-mancanegara/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
 
               formatNum = d3.format(',d');
 
@@ -320,7 +320,7 @@
 
 
               //Get JSON Data again
-              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+              d3.json('https://louislugas.github.io/wisatawan-mancanegara/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
                 console.log(year);
                 if (year < 2018)
                   year = year + 1;
@@ -391,7 +391,7 @@
 
               counter = 0;
               //Get JSON Data again
-              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+              d3.json('https://louislugas.github.io/wisatawan-mancanegara/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
 
                 year = 2009;
 
@@ -452,7 +452,7 @@
 
 
               //Get JSON Data again
-              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+              d3.json('https://louislugas.github.io/wisatawan-mancanegara/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
 
 
                 if(dataset[ counter + 1 ]) {
@@ -525,7 +525,7 @@
             function previousData() {
 
               //Get JSON Data again
-              d3.json('/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
+              d3.json('https://louislugas.github.io/wisatawan-mancanegara/Kunjungan-Wisman-2009-2018.json').then(function(dataset){
                 console.log(year);
                 if (year > 2009)
                   year = year - 1;
