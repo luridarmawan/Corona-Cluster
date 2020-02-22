@@ -8,8 +8,8 @@ body{
   padding:0;
 }
 
-.container img {
-  position:relative;
+.background-image {
+  position:absolute;
   margin:auto;
 }
 
