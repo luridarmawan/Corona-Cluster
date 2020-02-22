@@ -4,30 +4,26 @@ body{
   padding:0;
 }
 
-.container{
-  padding:0;
-}
 .cont{
   position:relative;
   border: 3px solid red;
   width: 500px;
   margin:auto;
 }
-div.background-image {
+
+.background-image {
   position: absolute;
   z-index: -100;
 }
 
 .container-infographic{
   position:absolute;
-
   height: 871px;
   width: 490px;
-  margin:auto;
+  z-index: 100;
 }
 
 .infographic{
-
   height: 100%;
   width: 100%;
   margin: auto;
@@ -37,7 +33,6 @@ div.background-image {
 }
 
 .logo{
-
   height: 46px;
   width: 36px;
   position: absolute;
@@ -46,7 +41,6 @@ div.background-image {
 }
 
 .sumber{
-
   height: 46px;
   width: 125px;
   position: absolute;
