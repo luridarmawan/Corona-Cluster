@@ -60,9 +60,6 @@ function populateKabkot() {
    type: "get",
    cache: false,
    success: function(data) {
-     $(data.features).sort(function(a,b){
-       return a.properties.KABKOT > b.properties.KABKOT;
-     })
      $(data.features).each(function(index, value) {
        //console.log(value.properties.KABKOT); --- TEST CONSOLE
        var dataKabkot = (value.properties.KABKOT);
