@@ -52,7 +52,7 @@ canvas.selectAll("rect")
   .attr("fill",function (i) { return colore(i); });
   .attr("x", function (i) {for (i=1; i <= scaleWarna.range().length; i++)
   { return (i * 12) + "px"; }
-  })
+});
 
 //============================================================================================================
 
