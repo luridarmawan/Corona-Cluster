@@ -48,6 +48,7 @@ var div = d3.select("body").append("div")
       .domain([-10000000, 0, 5000000]);
 
     var formatNum = d3.format(",d");
+    console.log(formatNum(data));
 
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
     var legend = d3.select("#legend").append("svg")
