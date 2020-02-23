@@ -513,7 +513,7 @@ var color = d3.scaleLinear()
   .domain([-10000000, 0, 5000000]);
 
 // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-var legend = d3.select("#legend-container").append("svg")
+var legend = d3.select("#legend").append("svg")
   .attr("width", 140)
   .attr("height", 200)
   .selectAll("g")
