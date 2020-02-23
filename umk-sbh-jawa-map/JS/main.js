@@ -63,7 +63,7 @@ var div = d3.select("body").append("div")
       .style("fill", color);
 
     legend.append("text")
-      .data(d3.format(",")(data))
+      .data("Rp" + d3.format(",")(data))
       .attr("x", 24)
       .attr("y", 9)
       .attr("dy", ".35em")
