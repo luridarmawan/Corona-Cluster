@@ -47,7 +47,7 @@ var div = d3.select("body").append("div")
       .range(["red","yellow","green"])
       .domain([-10000000, 0, 5000000]);
 
-    var formatNum = d3.format(",d");
+    var formatNum = d3.format(",.2r");
     console.log(formatNum(data));
 
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
