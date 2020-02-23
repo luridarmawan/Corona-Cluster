@@ -528,7 +528,7 @@ legend.append("rect")
   .style("fill", color);
 
 legend.append("text")
-  .data(data)
+  .data(d3.format(",")(data))
   .attr("x", 24)
   .attr("y", 9)
   .attr("dy", ".35em")
