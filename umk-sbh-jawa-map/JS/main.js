@@ -47,6 +47,9 @@ var div = d3.select("body").append("div")
       .range(["red","yellow","green"])
       .domain([-10000000, 0, 5000000]);
 
+    var formatNum = d3.format(",");
+    console.log(formatNum(data));
+
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
     var legend = d3.select("#legend").append("svg")
       .attr("width", 140)
@@ -63,7 +66,7 @@ var div = d3.select("body").append("div")
       .style("fill", color);
 
     legend.append("text")
-      .data(d3.format(",")(data))
+      .data(data)
       .attr("x", 24)
       .attr("y", 9)
       .attr("dy", ".35em")
