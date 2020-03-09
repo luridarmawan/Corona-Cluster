@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Corona</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- LOAD D3.JS -->
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-fetch.v1.min.js"></script>
+
+
+		<!-- LOAD COLOR D3.JS -->
+		<script src="https://d3js.org/d3-color.v1.min.js"></script>
+		<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <!-- LOAD BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- LOAD BOOTSTRAP JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<!-- LOAD JQUERY -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<!-- LOAD NUMERAL - NUMBER FORMATTING JS -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+		<!-- LOAD AOS -->
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- LOAD CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/bootstrap.css">
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- LOAD FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+
+	</head>
+	<body>
+		<script>AOS.init();</script>
+
+		<div class="intro">
+			<h1>Kasus<br><font color="steelblue">Covid-19</font> di Indonesia</h1>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est purus, viverra eu malesuada non, interdum in justo. Curabitur ultricies diam quis enim bibendum, ut lacinia sapien suscipit. Donec ipsum turpis, fermentum in pharetra quis, vestibulum congue ligula. Donec imperdiet nisi nec elit bibendum congue. Phasellus egestas ante in odio condimentum molestie. Proin condimentum eros sit amet enim tincidunt, porttitor imperdiet odio pretium. Maecenas finibus, dui eget elementum molestie, erat mi rhoncus odio, ac iaculis turpis libero tincidunt ipsum. Mauris eget leo quis magna varius laoreet ut eu justo. Morbi cursus sed nunc a rhoncus. Praesent mattis, mi vel sollicitudin mattis, sem mauris sollicitudin mi, non imperdiet dui ex id magna. Aliquam non mi nec ex lacinia elementum. Suspendisse potenti. Sed elementum lectus nisl, eget facilisis metus fermentum ultricies.
+		</div>
+
+		<div class="infog">
+		</div>
+
+		<div class="intro">
+			<h1>Bagaimana Pemerintah Menyikapi <br><font color="steelblue">Covid-19</font></h1>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est purus, viverra eu malesuada non, interdum in justo. Curabitur ultricies diam quis enim bibendum, ut lacinia sapien suscipit. Donec ipsum turpis, fermentum in pharetra quis, vestibulum congue ligula. Donec imperdiet nisi nec elit bibendum congue. Phasellus egestas ante in odio condimentum molestie. Proin condimentum eros sit amet enim tincidunt, porttitor imperdiet odio pretium. Maecenas finibus, dui eget elementum molestie, erat mi rhoncus odio, ac iaculis turpis libero tincidunt ipsum. Mauris eget leo quis magna varius laoreet ut eu justo. Morbi cursus sed nunc a rhoncus. Praesent mattis, mi vel sollicitudin mattis, sem mauris sollicitudin mi, non imperdiet dui ex id magna. Aliquam non mi nec ex lacinia elementum. Suspendisse potenti. Sed elementum lectus nisl, eget facilisis metus fermentum ultricies.
+		</div>
+
+    <div class="scroll-container">
+
+			<div class="quotes-container" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="top-bottom">
+				<div class="image-container">
+					<img src="aset_trace-01.png" class="image">
+					<img src="Circle-01.png" class="circle">
+				</div>
+				<div class="text-container">
+					<div class="text-inner-container">
+						<div class="quotes">
+							<div class="date">17 Februari 2020</div>
+							<div class="text">Terlalu cepat mengklaim Indonesia bebas Covid-19</div>
+							<div class="balloon">
+								<div class="balloon-text">“Tentu ini bukan asal bicara, tapi merupakan  hasil usaha yang maksimal, hasil penelitian yang maksimal dari pihak terkait bagaimana kami memitigasi corona di Indonesia.”<br><a href="https://www.cnbcindonesia.com/news/20200217143405-4-138398/temui-who-wiranto-sebut-ri-bebas-corona-bukan-asal-bicara"> (sumber)</a></div>
+							</div>
+							<div class="callout"></div>
+							<div class="name align-left">Ketua Wantimpres, Wiranto</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="quotes-container" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="top-center">
+				<div class="text-container">
+					<div class="text-inner-container">
+						<div class="quotes">
+							<div class="date align-right">17 Februari 2020</div>
+							<div class="text align-right">Mewacanakan paket insentif ketika negara lain membatasi akses wisatawan</div>
+							<div class="balloon">
+								<div class="balloon-text align-right">“Jadi kami berusaha untuk mengambil kebijakan komprehensif, nggak parsial. Jadi ini akan kami lakukan dengan segera dan kami akan koordinasi dengan kementerian.”<br><a href="https://republika.co.id/berita/q5vd29428/pemerintah-siapkan-insentif-2530-persen-ke-destinasi-wisata"> (sumber)</a></div>
+							</div>
+							<div class="callout"></div>
+							<div class="name">Menparekraf, Wishnutama</div>
+						</div>
+					</div>
+				</div>
+				<div class="image-container bottom">
+					<img src="aset_trace-02.png" class="image">
+					<img src="Circle-01.png" class="circle">
+				</div>
+			</div>
+
+			<div class="quotes-container" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="top-center">
+				<div class="image-container">
+					<img src="aset_trace-03.png" class="image">
+					<img src="Circle-01.png" class="circle">
+				</div>
+				<div class="text-container">
+					<div class="text-inner-container">
+						<div class="quotes">
+							<div class="date">29 Februari 2020</div>
+							<div class="text">Mengimbau tenang dan berdoa, alih-alih lebih dulu menyodorkan langkah konkret</div>
+							<div class="balloon">
+								<div class="balloon-text">“Banyak kiai dan ulama yang selalu membaca doa qunut dan saya juga begitu baca qunut. Makanya Corona nyingkir dari Indonesia.”<br><a href="https://www.liputan6.com/news/read/4190703/maruf-amin-berkat-doa-kiai-dan-qunut-corona-menyingkir-dari-indonesia"> (sumber)</a></div>
+							</div>
+							<div class="callout"></div>
+							<div class="name align-left">Wapres, Ma'ruf Amin</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="quotes-container" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="top-center">
+				<div class="text-container">
+					<div class="text-inner-container">
+						<div class="quotes">
+							<div class="date align-right">2 Maret 2020</div>
+							<div class="text align-right">Tak kunjung umumkan aturan khusus dan seragam terhadap kedatangan wisatawan asing. Pemerintah hanya memperketat pintu masuk bandara di daerah-daerah</div>
+							<div class="balloon">
+								<div class="balloon-text align-right">"Itu dari Menlu aja nanti. Sudah disepakati, yang jelas pembatasan mobilitas orang pasti ada."<br><a href="https://www.cnnindonesia.com/nasional/20200302201814-20-479892/pemerintah-batasi-wna-dari-episentrum-corona-masuk-indonesia"> (sumber)</a></div>
+							</div>
+							<div class="callout"></div>
+							<div class="name">Kepala Staf Presiden, Moeldoko</div>
+						</div>
+					</div>
+				</div>
+				<div class="image-container bottom">
+					<img src="aset_trace-04.png" class="image">
+					<img src="Circle-01.png" class="circle">
+				</div>
+			</div>
+
+			<div class="quotes-container" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="bottom-bottom">
+				<div class="image-container">
+					<img src="aset_trace-05.png" class="image">
+					<img src="Circle-01.png" class="circle">
+				</div>
+				<div class="text-container">
+					<div class="text-inner-container">
+						<div class="quotes">
+							<div class="date">2 Maret 2020</div>
+							<div class="text">Pemerintah umumkan dua WNI positif covid-19. Kontak penularan terjadi 14 Februari 2020.</div>
+							<div class="balloon">
+								<div class="balloon-text">"Tapi di situ dia sudah dirawat dalam pengawasan, dia pasien dalam pemantauan. Sehingga teman-teman dokter yang ada di rumah sakit tersebut sudah menyiapkan diri dengan peralatannya.”<br><a href="https://tirto.id/eCo7"> (sumber)</a></div>
+							</div>
+							<div class="callout"></div>
+							<div class="name align-left">Menkes, Terawan</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>

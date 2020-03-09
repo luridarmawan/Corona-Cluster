@@ -1,0 +1,263 @@
+.intro {
+  background-color: white;
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: 200px;
+  width:320px;
+  height: 100%;
+  text-align: justify;
+
+}
+
+h1 {
+  font-weight: 800;
+  text-align: center;
+  margin-bottom:20px;
+}
+
+a {
+  font-style: italic;
+  color: #f24e5e;
+  font-weight: 600;
+}
+
+.scroll-container {
+  width: 100%;
+  height: 350px;
+}
+
+.quotes-container {
+  width: 90%;
+  height:90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.quotes-container::before {
+  content:"";
+  display:inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.image-container{
+  position:relative;
+  width:30%;
+  height:90%;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding-top:100px;
+}
+
+.text-container {
+  position: relative;
+  width: 60%;
+  height: 90%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+}
+
+.image {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.balloon {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  line-height: normal;
+  vertical-align: middle;
+  background-color: lightblue;
+  border-radius: 20px;
+}
+
+.balloon-text {
+  text-align: left;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.quotes {
+  position: relative;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+
+}
+
+.name {
+  float:right;
+  width: 90%;
+  line-height: 1em;
+  text-align: right;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.date {
+  font-size: 36px;
+  font-weight: 900;
+  text-align: left;
+  color: steelblue;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: left;
+  line-height: 1em;
+  margin-bottom: 10px;
+}
+
+.text-inner-container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width: 100%;
+  height: 400px;
+}
+
+.align-left {
+  text-align: left;
+  float: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.infog {
+  position:relative;
+  background-color: #black;
+  width:100%;
+  height:1200px;
+  background-repeat: no-repeat;
+  background-position:center;
+  margin:auto;
+  margin-bottom:150px;
+}
+@media screen and (min-width:320px) and (max-width:509px) {
+  .scroll-container {
+    width: 100%;
+    height: 520px;
+  }
+  .date {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 0.8em;
+  }
+  .text {
+    margin-top:8px;
+    font-size: 14px;
+    line-height: 1.2em;
+  }
+  .balloon-text {
+    line-height: 1.2em;
+    font-size: 16px;
+  }
+  .name {
+    font-size: 14px;
+  }
+  .image-container{
+    position:relative;
+    left: 0;
+    top:110px;
+    width:80%;
+  }
+  .text-container {
+    position: relative;
+    top:-550px;
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+  }
+  .bottom {
+    position:relative;
+    left: 0;
+    top:-730px;
+    width:80%;
+  }
+  .infog {
+    background-image: url('../Infog_covid_19_XS-320-509.png');
+    height:1200px;
+  }
+  .intro {
+    width: 270px;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width:510px) and (max-width:689px) {
+  .scroll-container {
+    width: 100%;
+    height: 420px;
+  }
+  .date {
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .infog {
+    background-image: url('../Infog_covid_19_S-510-689.png');
+    height:1000px;
+  }
+  .intro {
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (min-width:690px) and (max-width:919px) {
+  .scroll-container {
+    width: 100%;
+    height: 400px;
+  }
+  .date {
+    font-size: 32px;
+    font-weight: 800;
+  }
+  .infog {
+    background-image: url('../Infog_covid_19_M-690-919.png');
+    height:950px;
+  }
+  .intro {
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (min-width:920px) and (max-width:1399px) {
+  .infog {
+    background-image: url('../Infog_covid_19_L-920-1399.png');
+    height:700px;
+  }
+  .intro {
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (min-width:1400px) {
+  .infog {
+    background-image: url('../Infog_covid_19_XL-1400---.png');
+    height:800px;
+  }
+  .intro {
+    margin-bottom: 70px;
+  }
+}
