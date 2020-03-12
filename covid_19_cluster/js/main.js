@@ -12,7 +12,7 @@ var svg = d3.select(".bottom-container")
   .attr("width", width)
   .attr("height", height)
 
-var url = "/json/kasus-corona-indonesia.json";
+var url = "covid_19_cluster/json/kasus-corona-indonesia.json";
 
 var g = svg.append("g")
 .attr("class", "everything");
