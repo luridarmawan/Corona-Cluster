@@ -1,0 +1,370 @@
+{
+  "nodes":[
+    {
+      "id": 1,
+      "kasus": "Kasus #1",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 31,
+      "umurtext": "31 tahun",
+      "pengumuman": "2 Maret 2020",
+      "penularan": "Bertemu dengan WN Jepang yang dikonfirmasi positif di Malaysia (kasus #24)",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 2,
+      "kasus": "Kasus #2",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 61,
+      "umurtext": "61 tahun",
+      "pengumuman": "2 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1 (Ibu kasus #1)",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 3,
+      "kasus": "Kasus #3",
+      "wn": "WNI",
+      "gender": "-",
+      "umur": 34,
+      "umurtext": "33-34 tahun",
+      "pengumuman": "6 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1 di klub dansa",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 4,
+      "kasus": "Kasus #4",
+      "wn": "WNI",
+      "gender": "-",
+      "umur": 34,
+      "umurtext": "33-34 tahun",
+      "pengumuman": "6 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1 di klub dansa",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 5,
+      "kasus": "Kasus #5",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 55,
+      "umurtext": "55 tahun",
+      "pengumuman": "8 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1 di klub dansa",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 6,
+      "kasus": "Kasus #6",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 36,
+      "umurtext": "36 tahun",
+      "pengumuman": "8 Maret 2020",
+      "penularan": "Diduga tertular dari kapal Diamond Princess",
+      "klaster": "Diamond Princess",
+      "klasterid": 6
+    },
+    {
+      "id": 7,
+      "kasus": "Kasus #7",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 59,
+      "umurtext": "59 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 8,
+      "kasus": "Kasus #8",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 56,
+      "umurtext": "56 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Suami kasus #7",
+      "klaster": "Jakarta-Impor",
+      "klasterid": 4
+    },
+    {
+      "id": 9,
+      "kasus": "Kasus #9",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 55,
+      "umurtext": "55 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 10,
+      "kasus": "Kasus #10",
+      "wn": "WNA",
+      "gender": "Laki-laki",
+      "umur": 29,
+      "umurtext": "29 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 11,
+      "kasus": "Kasus #11",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 54,
+      "umurtext": "54 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 12,
+      "kasus": "Kasus #12",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 31,
+      "umurtext": "31 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Terhubung dengan kasus #1",
+      "klaster": "Jakarta",
+      "klasterid": 1
+    },
+    {
+      "id": 13,
+      "kasus": "Kasus #13",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 16,
+      "umurtext": "16 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Subklaster kasus #3",
+      "klaster": "Subklaster 3",
+      "klasterid": 5
+    },
+    {
+      "id": 14,
+      "kasus": "Kasus #14",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 50,
+      "umurtext": "50 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 15,
+      "kasus": "Kasus #15",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 43,
+      "umurtext": "43 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 16,
+      "kasus": "Kasus #16",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 17,
+      "umurtext": "17 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Terhubung dengan kasus #15",
+      "klaster": "Jakarta-Impor",
+      "klasterid": 4
+    },
+    {
+      "id": 17,
+      "kasus": "Kasus #17",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 56,
+      "umurtext": "56 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 18,
+      "kasus": "Kasus #18",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 55,
+      "umurtext": "55 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 19,
+      "kasus": "Kasus #19",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 40,
+      "umurtext": "40 tahun",
+      "pengumuman": "9 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 20,
+      "kasus": "Kasus #20",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 70,
+      "umurtext": "70 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "Subklaster kasus #1",
+      "klaster": "Subklaster 1",
+      "klasterid": 3
+    },
+    {
+      "id": 21,
+      "kasus": "Kasus #21",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 47,
+      "umurtext": "47 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "Subklaster kasus #1",
+      "klaster": "Subklaster 1",
+      "klasterid": 3
+    },
+    {
+      "id": 22,
+      "kasus": "Kasus #22",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 36,
+      "umurtext": "36 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 23,
+      "kasus": "Kasus #23",
+      "wn": "WNI",
+      "gender": "Perempuan",
+      "umur": 73,
+      "umurtext": "73 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 24,
+      "kasus": "Kasus #24",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 46,
+      "umurtext": "46 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "Sehabis dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 25,
+      "kasus": "Kasus #25",
+      "wn": "WNA",
+      "gender": "Perempuan",
+      "umur": 53,
+      "umurtext": "53 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "WNA dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 26,
+      "kasus": "Kasus #26",
+      "wn": "WNA",
+      "gender": "Laki-laki",
+      "umur": 46,
+      "umurtext": "46 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "WNA dari luar negeri",
+      "klaster": "Kasus Impor",
+      "klasterid": 2
+    },
+    {
+      "id": 27,
+      "kasus": "Kasus #27",
+      "wn": "WNI",
+      "gender": "Laki-laki",
+      "umur": 33,
+      "umurtext": "33 tahun",
+      "pengumuman": "10 Maret 2020",
+      "penularan": "Transmisi lokal",
+      "klaster": "Transmisi lokal",
+      "klasterid": 5
+    }
+  ],
+  "links": [
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 3
+    },
+    {
+      "source": 1,
+      "target": 4
+    },
+    {
+      "source": 1,
+      "target": 5
+    },
+    {
+      "source": 7,
+      "target": 8
+    },
+    {
+      "source": 1,
+      "target": 10
+    },
+    {
+      "source": 1,
+      "target": 11
+    },
+    {
+      "source": 1,
+      "target": 12
+    },
+    {
+      "source": 1,
+      "target": 13
+    },
+    {
+      "source": 15,
+      "target": 16
+    }
+  ]
+}

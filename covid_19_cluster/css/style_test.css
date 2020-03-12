@@ -1,0 +1,62 @@
+.container {
+  width: 478px;
+  height: 850px;
+  margin: auto;
+  padding-top: 10px;
+  background-color: indianred;
+}
+
+.top-container {
+  position: relative;
+  width: 95%;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 132px;
+  background-color: lightyellow;
+}
+
+.title {
+  position:absolute;
+  left: 10px;
+  top: 16px;
+  width: 100px;
+  height: 100px;
+  background-color: darkslateblue;
+}
+
+.source {
+  position:absolute;
+  right: 50px;
+  top: 16px;
+  width: 125px;
+  height: 46px;
+  background-color: cadetblue;
+}
+
+.logo {
+  position:absolute;
+  right: 0px;
+  top: 16px;
+  width: 36px;
+  height: 46px;
+  background-color: cadetblue;
+}
+
+.middle-container {
+  width: 95%;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  background-color: yellow;
+}
+
+.bottom-container {
+  width: 95%;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 465px;
+  background-color: greenyellow;
+}
