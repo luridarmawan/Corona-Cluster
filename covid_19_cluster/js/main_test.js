@@ -492,7 +492,7 @@ function updateDisplay() {
 		colorStatus();
 	} else if ( document.getElementById("umur-color").checked) {
 		colorAge();
-	}
+	};
 
 	link
 		.style("stroke", "white")
@@ -503,7 +503,7 @@ function updateDisplay() {
 		.on("mouseout",fade(1, "white"));
 
 	mouseOver();
-}
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //UPDATE COLOR
@@ -518,7 +518,7 @@ colorCluster(){
 		.style("stroke-width", 3)
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
-}
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY GENDER
@@ -531,7 +531,7 @@ colorGender(){
 		.style("stroke-width", 3)
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
-}
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY NEGARA
@@ -544,7 +544,7 @@ colorNational(){
 		.style("stroke-width", 3)
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
-}
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY STATUS
@@ -557,7 +557,7 @@ colorStatus(){
 		.style("stroke-width", 3)
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
-	}
+	};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY UMUR
@@ -571,7 +571,7 @@ colorAge(){
 		.style("stroke-width", 3)
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
-}
+};
 
 
 //mouseover function
