@@ -119,14 +119,18 @@ function forceCluster() {
 function forceAge() {
 
 	//width divider
+	var div = Math.max.apply(Math,graph.nodes.map(function(d){return d.umur;}));
+	console.log(div);
 	console.log(width);
-	var scale = width/9/1.5;
+	var scale = width/div/1.5;
 	console.log(scale);
-	var arrrange = Array.from(Array(9), (value, index) => ((index+1)*scale));
+	var arrdomain = Array.from(Array(9), (value, index) => (index+1));
+	var arrrange = Array.from(Array(div), (value, index) => ((index+1)*scale));
 	console.log(arrrange);
+	console.log(arrdomain);
 
-	var scaleCat = d3.scaleLinear()
-	  .domain([0,80])
+	var scaleCat = d3.scaleOrdinal()
+	  .domain(arrdomain)
 	  .range(arrrange)
 
 	simulation.force("center")
