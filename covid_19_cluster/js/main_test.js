@@ -113,6 +113,49 @@ function forceCluster() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+//GROUP BY AGE
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function forceAge() {
+
+	//width divider
+	console.log(width);
+	var scale = width/9/1.5;
+	console.log(scale);
+	var arrrange = Array.from(Array(9), (value, index) => ((index+1)*scale));
+	console.log(arrrange);
+
+	var scaleCat = d3.scaleOrdinal()
+	  .domain([0,10,20,30,40,50,60,70,80])
+	  .range(arrrange)
+
+	simulation.force("center")
+		.x(width * forceProperties.center.x+20)
+		.y(height * forceProperties.center.y);
+	simulation.force("charge")
+		.strength(-150)
+		.distanceMin(forceProperties.charge.distanceMin)
+		.distanceMax(forceProperties.charge.distanceMax);
+	simulation.force("collide")
+		.strength(forceProperties.collide.strength * forceProperties.charge.enabled)
+		.radius(forceProperties.collide.radius)
+		.iterations(forceProperties.collide.iterations);
+	simulation.force("forceY")
+		.strength(0.5)
+		.y(height * forceProperties.forceY.y);
+	simulation.force("forceX")
+		.strength(0.9)
+		.x(function(d){ return scaleCat(d.umur) } );
+	simulation.force("link")
+		.id(function(d) { return d.id ;})
+		.distance(forceProperties.link.distance)
+		.strength(0.01)
+		.iterations(forceProperties.link.iterations)
+		.links(forceProperties.link.enabled ? graph.links : []);
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 //GROUP BY GENDER
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -347,6 +390,8 @@ function updateForces() {
 		forceNational();
 	} else if ( document.getElementById("status").checked) {
 		forceStatus();
+	} else if ( document.getElementById("umur").checked) {
+		forceAge();
 	}
 
 
