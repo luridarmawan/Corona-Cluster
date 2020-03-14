@@ -125,7 +125,7 @@ function forceAge() {
 	var arrrange = Array.from(Array(9), (value, index) => ((index+1)*scale));
 	console.log(arrrange);
 
-	var scaleCat = d3.scaleOrdinal()
+	var scaleCat = d3.scaleLinear()
 	  .domain([0,10,20,30,40,50,60,70,80])
 	  .range(arrrange)
 
