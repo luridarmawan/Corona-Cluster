@@ -481,13 +481,18 @@ function initializeDisplay() {
 
 //update the display based on the forces (but not positions)
 function updateDisplay() {
-	node
-		.attr("r", radius)
-		.style("fill", function(d) {return warna( d.klasterid );})
-		.style("stroke", "white")
-		.style("stroke-width", 3)
-		.on("mouseover", fade(.1, "black"))
-		.on("mouseout",fade(1, "white"));
+
+	if ( document.getElementById("cluster-color").checked ) {
+		colorCluster();
+	} else if ( document.getElementById("gender-color").checked ) {
+		colorGender();
+	} else if ( document.getElementById("negara-color").checked ) {
+		colorNational();
+	} else if ( document.getElementById("status-color").checked) {
+		colorStatus();
+	} else if ( document.getElementById("umur-color").checked) {
+		colorAge();
+	}
 
 	link
 		.style("stroke", "white")
@@ -497,6 +502,80 @@ function updateDisplay() {
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
 
+	mouseOver();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//UPDATE COLOR
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//COLOR BY CLUSTER
+////////////////////////////////////////////////////////////////////////////////////////////////////
+colorCluster(){
+	node
+		.attr("r", radius)
+		.style("fill", function(d) {return warna( d.klasterid );})
+		.style("stroke", "white")
+		.style("stroke-width", 3)
+		.on("mouseover", fade(.1, "black"))
+		.on("mouseout",fade(1, "white"));
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//COLOR BY GENDER
+////////////////////////////////////////////////////////////////////////////////////////////////////
+colorGender(){
+	node
+		.attr("r", radius)
+		.style("fill", function(d) {return warna( d.genderid );})
+		.style("stroke", "white")
+		.style("stroke-width", 3)
+		.on("mouseover", fade(.1, "black"))
+		.on("mouseout",fade(1, "white"));
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//COLOR BY NEGARA
+////////////////////////////////////////////////////////////////////////////////////////////////////
+colorNational(){
+	node
+		.attr("r", radius)
+		.style("fill", function(d) {return warna( d.wnid );})
+		.style("stroke", "white")
+		.style("stroke-width", 3)
+		.on("mouseover", fade(.1, "black"))
+		.on("mouseout",fade(1, "white"));
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//COLOR BY STATUS
+////////////////////////////////////////////////////////////////////////////////////////////////////
+colorStatus(){
+	node
+		.attr("r", radius)
+		.style("fill", function(d) {return warna( d.statusid );})
+		.style("stroke", "white")
+		.style("stroke-width", 3)
+		.on("mouseover", fade(.1, "black"))
+		.on("mouseout",fade(1, "white"));
+	}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//COLOR BY UMUR
+////////////////////////////////////////////////////////////////////////////////////////////////////
+colorAge(){
+	var warnaAge = d3.scaleQuantile().domain([0,10,20,30,40,50,60,70,80,90]);
+	node
+		.attr("r", radius)
+		.style("fill", function(d) {return warnaAge( d.age);})
+		.style("stroke", "white")
+		.style("stroke-width", 3)
+		.on("mouseover", fade(.1, "black"))
+		.on("mouseout",fade(1, "white"));
+}
+
+
+//mouseover function
+function mouseOver() {
 	var linkedByIndex = {};
 	graph.links.forEach(function(d) {
 			linkedByIndex[d.source.index + "," + d.target.index] = 1;
@@ -509,51 +588,50 @@ function updateDisplay() {
 	}
 
 	function fade(opacity,color) {
-                 return function(d) {
+								 return function(d) {
 
-              //node.style("stroke-opacity", function(o) {
-                 //thisOpacity = isConnected(d, o) ? 1 : opacity;
-                 //this.setAttribute('fill-opacity', thisOpacity);
-                 //return thisOpacity;
-             //});
+							//node.style("stroke-opacity", function(o) {
+								 //thisOpacity = isConnected(d, o) ? 1 : opacity;
+								 //this.setAttribute('fill-opacity', thisOpacity);
+								 //return thisOpacity;
+						 //});
 
-   var connected = [d];
+	 var connected = [d];
 
-   node.style("stroke-opacity", function(o) {
-       thisOpacity = opacity;
-       connected.forEach(function(e) {
-           if(isConnected(e, o)) { thisOpacity = 1; }
-       });
-       this.setAttribute('fill-opacity', thisOpacity);
-       return thisOpacity;
-   });
+	 node.style("stroke-opacity", function(o) {
+			 thisOpacity = opacity;
+			 connected.forEach(function(e) {
+					 if(isConnected(e, o)) { thisOpacity = 1; }
+			 });
+			 this.setAttribute('fill-opacity', thisOpacity);
+			 return thisOpacity;
+	 });
 
 
 
-   link
+	 link
 	 .style("stroke-opacity", function(o) {
-       thisOpacity = opacity;
-           connected.forEach(function(e) {
-               if(o.source === e || o.target === e) {
-                   thisOpacity = 1;
-               }
-           });
-           return thisOpacity;
-        })
-        .style("stroke", function(o) {
-               thisColor = color;
-               connected.forEach(function(e) {
-                   if(o.source === e || o.target === e) {
-                       thisColor = "white";
-                   }
-               });
-               return thisColor;
-           });
+			 thisOpacity = opacity;
+					 connected.forEach(function(e) {
+							 if(o.source === e || o.target === e) {
+									 thisOpacity = 1;
+							 }
+					 });
+					 return thisOpacity;
+				})
+				.style("stroke", function(o) {
+							 thisColor = color;
+							 connected.forEach(function(e) {
+									 if(o.source === e || o.target === e) {
+											 thisColor = "white";
+									 }
+							 });
+							 return thisColor;
+					 });
 
-       };
+			 };
 
-       }
-
+			 }
 }
 
 //update the position after each simulation tick
