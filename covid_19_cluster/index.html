@@ -55,7 +55,26 @@
 				<div class="tooltip-container"></div>
 			</div>
 			<div class="bottom-container">
-				<form class="form-left" action=""><strong>Pengelompokan</strong><br>
+				<div class="form-left">
+				<label><strong>Pilih Pengelompokan:</strong></label><br>
+				<select>
+				  <option id="normal" selected value="volvo" onclick="updateAll()">Normal</option>
+				  <option id="cluster"value="cluster" onclick="updateAll()">Klaster</option>
+				  <option id="gender"value="gender" onclick="updateAll()">Jenis Kelamin</option>
+					<option id="negara"value="negara" onclick="updateAll()">Kewarganegaraan</option>
+					<option id="status"value="status" onclick="updateAll()">Status</option>
+					<option id="umur"value="umur" onclick="updateAll()">Usia</option>
+				</select><br>
+				<label><strong>Pilih Warna:</strong></label><br>
+				<select>
+					<option id="cluster-color" selected value="cluster" onclick="updateAll()">Klaster</option>
+				  <option id="gender-color" value="gender" onclick="updateAll()">Jenis Kelamin</option>
+					<option id="negara-color" value="negara" onclick="updateAll()">Kewarganegaraan</option>
+					<option id="status-color" value="status" onclick="updateAll()">Status</option>
+					<option id="umur-color" value="umur" onclick="updateAll()">Usia</option>
+				</select><br>
+			</div>
+<!--				<form class="form-left" action=""><strong>Pengelompokan</strong><br>
 					<input id="normal" type="radio" name="grouping"	value="normal" checked onclick="updateAll()">Normal<br>
 					<input id="cluster" type="radio" name="grouping"	value="cluster" onclick="updateAll()">Klaster<br>
 					<input id="gender" type="radio" name="grouping"	value="gender" onclick="updateAll()">Jenis Kelamin<br>
@@ -69,7 +88,7 @@
 					<input id="negara-color" type="radio" name="grouping"	value="normal" onclick="updateAll()">Kewarganegaraan<br>
 					<input id="status-color" type="radio" name="grouping"	value="normal" onclick="updateAll()">Status<br>
 					<input id="umur-color" type="radio" name="grouping"	value="normal" onclick="updateAll()">Usia<br>
-				</form>
+				</form>-->
 			</div>
 		</div>
 

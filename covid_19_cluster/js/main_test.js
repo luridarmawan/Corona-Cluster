@@ -384,17 +384,17 @@ function initializeForce() {
 //apply new force properties
 function updateForces() {
 	//get radio button value
-	if ( document.getElementById("normal").checked ) {
+	if ( document.getElementById("normal").selected ) {
 		forceNormal();
-	} else if ( document.getElementById("cluster").checked ) {
+	} else if ( document.getElementById("cluster").selected ) {
 		forceCluster();
-	} else if ( document.getElementById("gender").checked ) {
+	} else if ( document.getElementById("gender").selected ) {
 		forceGender();
-	} else if ( document.getElementById("negara").checked ) {
+	} else if ( document.getElementById("negara").selected ) {
 		forceNational();
-	} else if ( document.getElementById("status").checked) {
+	} else if ( document.getElementById("status").selected) {
 		forceStatus();
-	} else if ( document.getElementById("umur").checked) {
+	} else if ( document.getElementById("umur").selected) {
 		forceAge();
 	}
 
@@ -482,15 +482,15 @@ function initializeDisplay() {
 //update the display based on the forces (but not positions)
 function updateDisplay() {
 
-	if ( document.getElementById("cluster-color").checked ) {
+	if ( document.getElementById("cluster-color").selected ) {
 		colorCluster();
-	} else if ( document.getElementById("gender-color").checked ) {
+	} else if ( document.getElementById("gender-color").selected ) {
 		colorGender();
-	} else if ( document.getElementById("negara-color").checked ) {
+	} else if ( document.getElementById("negara-color").selected ) {
 		colorNational();
-	} else if ( document.getElementById("status-color").checked) {
+	} else if ( document.getElementById("status-color").selected) {
 		colorStatus();
-	} else if ( document.getElementById("umur-color").checked) {
+	} else if ( document.getElementById("umur-color").selected) {
 		colorAge();
 	};
 	node
