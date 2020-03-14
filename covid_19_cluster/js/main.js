@@ -25,12 +25,20 @@ zoom_handler(svg);
 
 console.log(url);
 
-d3.json(url).then(function(data) {
-    console.log(data.links);
-    console.log(data.nodes);
-    console.log(data);
-});
+var x = d3.scaleOrdinal()
+  .domain([1, 2, 3, 4, 5, 6])
+  .range([20, 70, 120, 170, 220, 270])
 
+//test url
+//d3.json(url).then(function(data) {
+//    console.log(data.links);
+//    console.log(data.nodes);
+//    console.log(data);
+//});
+
+startViz()
+//START VIS
+function startViz() {
 d3.json(url).then(function(data) {
 
   var link = g
@@ -82,8 +90,8 @@ d3.json(url).then(function(data) {
       .links(data.links)// and this the list of links
         )
     .force("center", d3.forceCenter().x(width/2).y(height/2)) // Attraction to the center of the svg area
-    .force("charge", d3.forceManyBody().strength(0.1)) // Nodes are attracted one each other of value is > 0
-    .force("collide", d3.forceCollide().strength(.01).radius(40).iterations(1)); // Force that avoids circle overlapping
+    .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
+    .force("collide", d3.forceCollide().strength(0.01).radius(45).iterations(1)); // Force that avoids circle overlapping
 
 // Apply these forces to the nodes and update their positions.
 // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
@@ -106,6 +114,8 @@ simulation
     });
 
 });
+};
+
 
 drag = simulation => {
 

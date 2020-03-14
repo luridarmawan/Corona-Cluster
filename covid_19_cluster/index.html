@@ -33,8 +33,7 @@
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- LOAD CUSTOM CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://louislugas.github.io/covid_19_cluster/css/style.css">
 
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -46,16 +45,24 @@
 	<body>
 		<div class="container">
 			<div class="top-container">
-				<div class="title">KASUS <br><font color="steelblue">COVID-19</font><br>DI INDONESIA <font style="font-size:12pt; font-weight:600; color:steelblue"> UPDATE 9 MARET</font></div>
+				<div class="title">KASUS <br><font color="steelblue">COVID-19</font><br>DI INDONESIA <font style="font-size:12pt; font-weight:600; color:steelblue"> UPDATE 13 MARET</font></div>
 				<div class="source">Sumber : Kemenkes RI</div>
 				<div class="logo"><img src="logo-tirto-01.svg"></div>
 			</div>
 			<div class="middle-container">
 				<div class="tooltip-container"></div>
 			</div>
-			<div class="bottom-container"></div>
+			<div class="bottom-container">
+				<form class="form" action=""><strong>Pengelompokan</strong><br>
+					<input id="normal" type="radio" name="grouping"	value="normal" checked onclick="updateAll()">Normal<br>
+					<input id="cluster" type="radio" name="grouping"	value="cluster" onclick="updateAll()">Klaster<br>
+					<input id="gender" type="radio" name="grouping"	value="gender" onclick="updateAll()">Jenis Kelamin<br>
+					<input id="negara" type="radio" name="grouping"	value="negara" onclick="updateAll()">Kewarganegaraan<br>
+					<input id="status" type="radio" name="grouping"	value="status" onclick="updateAll()">Status<br>
+				</form>
+			</div>
 		</div>
 
-		<script type="text/javascript" src="/js/main.js"></script>
+		<script type="text/javascript" src="https://louislugas.github.io/covid_19_cluster/js/main_test.js"></script>
 	</body>
 </html>
