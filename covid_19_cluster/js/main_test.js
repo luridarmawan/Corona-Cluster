@@ -129,12 +129,12 @@ function forceAge() {
 	console.log(arrrange);
 	console.log(arrdomain);
 
-	var scaleCat = d3.scaleOrdinal()
-	  .domain([1,2,3,4,5,6,7,8,9])
+	var scaleCat = d3.scaleQuantile()
+	  .domain([0,10,20,30,40,50,60,70,80,90])
 	  .range(arrrange)
 
 	simulation.force("center")
-		.x(width * forceProperties.center.x+20)
+		.x(width * forceProperties.center.x)
 		.y(height * forceProperties.center.y);
 	simulation.force("charge")
 		.strength(-150)
