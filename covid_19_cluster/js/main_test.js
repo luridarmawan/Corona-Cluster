@@ -87,7 +87,7 @@ function forceCluster() {
 	  .range(arrrange)
 
 	simulation.force("center")
-		.x(width * forceProperties.center.x+20)
+		.x(width * forceProperties.center.x+30)
 		.y(height * forceProperties.center.y);
 	simulation.force("charge")
 		.strength(-150)
@@ -119,7 +119,7 @@ function forceCluster() {
 function forceAge() {
 
 	//width divider
-	var div = 9
+	var div = 10
 	console.log(div);
 	console.log(width);
 	var scale = width/div/1.5;
@@ -130,11 +130,11 @@ function forceAge() {
 	console.log(arrdomain);
 
 	var scaleCat = d3.scaleQuantile()
-	  .domain([0,10,20,30,40,50,60,70,80,90])
+	  .domain([0,10,20,30,40,50,60,70,80,90,100])
 	  .range(arrrange)
 
 	simulation.force("center")
-		.x(width * forceProperties.center.x)
+		.x(width * forceProperties.center.x+25)
 		.y(height * forceProperties.center.y);
 	simulation.force("charge")
 		.strength(-150)
@@ -181,7 +181,7 @@ function forceGender() {
 	  .range(arrrange)
 
 	simulation.force("center")
-		.x(width * forceProperties.center.x-50)
+		.x(width * forceProperties.center.x-10)
 		.y(height * forceProperties.center.y);
 	simulation.force("charge")
 		.strength(-150)
@@ -228,7 +228,7 @@ function forceStatus() {
 	  .range(arrrange)
 
 	simulation.force("center")
-		.x(width * forceProperties.center.x-5)
+		.x(width * forceProperties.center.x+5)
 		.y(height * forceProperties.center.y);
 	simulation.force("charge")
 		.strength(-150)
@@ -275,7 +275,7 @@ function forceNational() {
 	  .range(arrrange)
 
 	simulation.force("center")
-		.x(width * forceProperties.center.x)
+		.x(width * forceProperties.center.x+30)
 		.y(height * forceProperties.center.y);
 	simulation.force("charge")
 		.strength(-150)
@@ -340,7 +340,7 @@ forceProperties = {
 	},
 	charge: {
 		enabled: true,
-		strength: -60,
+		strength: -40,
 		distanceMin: 1,
 		distanceMax: 2000
 	},
@@ -493,6 +493,9 @@ function updateDisplay() {
 	} else if ( document.getElementById("umur-color").checked) {
 		colorAge();
 	};
+	node
+		.on("mouseover", fade(.1, "black"))
+		.on("mouseout",fade(1, "white"));
 
 	link
 		.style("stroke", "white")
@@ -502,7 +505,62 @@ function updateDisplay() {
 		.on("mouseover", fade(.1, "black"))
 		.on("mouseout",fade(1, "white"));
 
-	mouseOver();
+		var linkedByIndex = {};
+		graph.links.forEach(function(d) {
+				linkedByIndex[d.source.index + "," + d.target.index] = 1;
+		});
+
+		console.log(linkedByIndex);
+
+		function isConnected(a, b) {
+				return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+		}
+
+		function fade(opacity,color) {
+									 return function(d) {
+
+								//node.style("stroke-opacity", function(o) {
+									 //thisOpacity = isConnected(d, o) ? 1 : opacity;
+									 //this.setAttribute('fill-opacity', thisOpacity);
+									 //return thisOpacity;
+							 //});
+
+		 var connected = [d];
+
+		 node.style("stroke-opacity", function(o) {
+				 thisOpacity = opacity;
+				 connected.forEach(function(e) {
+						 if(isConnected(e, o)) { thisOpacity = 1; }
+				 });
+				 this.setAttribute('fill-opacity', thisOpacity);
+				 return thisOpacity;
+		 });
+
+
+
+		 link
+		 .style("stroke-opacity", function(o) {
+				 thisOpacity = opacity;
+						 connected.forEach(function(e) {
+								 if(o.source === e || o.target === e) {
+										 thisOpacity = 1;
+								 }
+						 });
+						 return thisOpacity;
+					})
+					.style("stroke", function(o) {
+								 thisColor = color;
+								 connected.forEach(function(e) {
+										 if(o.source === e || o.target === e) {
+												 thisColor = "white";
+										 }
+								 });
+								 return thisColor;
+						 });
+
+				 };
+
+				 }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -510,129 +568,63 @@ function updateDisplay() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY CLUSTER
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-colorCluster(){
+function colorCluster(){
 	node
 		.attr("r", radius)
 		.style("fill", function(d) {return warna( d.klasterid );})
 		.style("stroke", "white")
 		.style("stroke-width", 3)
-		.on("mouseover", fade(.1, "black"))
-		.on("mouseout",fade(1, "white"));
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY GENDER
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-colorGender(){
+function colorGender(){
 	node
 		.attr("r", radius)
 		.style("fill", function(d) {return warna( d.genderid );})
 		.style("stroke", "white")
 		.style("stroke-width", 3)
-		.on("mouseover", fade(.1, "black"))
-		.on("mouseout",fade(1, "white"));
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY NEGARA
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-colorNational(){
+function colorNational(){
 	node
 		.attr("r", radius)
 		.style("fill", function(d) {return warna( d.wnid );})
 		.style("stroke", "white")
 		.style("stroke-width", 3)
-		.on("mouseover", fade(.1, "black"))
-		.on("mouseout",fade(1, "white"));
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY STATUS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-colorStatus(){
+function colorStatus(){
 	node
 		.attr("r", radius)
 		.style("fill", function(d) {return warna( d.statusid );})
 		.style("stroke", "white")
 		.style("stroke-width", 3)
-		.on("mouseover", fade(.1, "black"))
-		.on("mouseout",fade(1, "white"));
 	};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLOR BY UMUR
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-colorAge(){
-	var warnaAge = d3.scaleQuantile().domain([0,10,20,30,40,50,60,70,80,90]);
+function colorAge(){
+	var domain = [0,10,20,30,40,50,60,70,80, 90, 100];
+
+	var warnaAge = d3.scaleQuantile()
+	.domain(domain)
+	.range(d3.schemeCategory10);
+
 	node
 		.attr("r", radius)
-		.style("fill", function(d) {return warnaAge( d.age);})
+		.style("fill", function(d) {return warnaAge(d.umur);})
 		.style("stroke", "white")
 		.style("stroke-width", 3)
-		.on("mouseover", fade(.1, "black"))
-		.on("mouseout",fade(1, "white"));
 };
-
-
-//mouseover function
-function mouseOver() {
-	var linkedByIndex = {};
-	graph.links.forEach(function(d) {
-			linkedByIndex[d.source.index + "," + d.target.index] = 1;
-	});
-
-	console.log(linkedByIndex);
-
-	function isConnected(a, b) {
-			return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
-	}
-
-	function fade(opacity,color) {
-								 return function(d) {
-
-							//node.style("stroke-opacity", function(o) {
-								 //thisOpacity = isConnected(d, o) ? 1 : opacity;
-								 //this.setAttribute('fill-opacity', thisOpacity);
-								 //return thisOpacity;
-						 //});
-
-	 var connected = [d];
-
-	 node.style("stroke-opacity", function(o) {
-			 thisOpacity = opacity;
-			 connected.forEach(function(e) {
-					 if(isConnected(e, o)) { thisOpacity = 1; }
-			 });
-			 this.setAttribute('fill-opacity', thisOpacity);
-			 return thisOpacity;
-	 });
-
-
-
-	 link
-	 .style("stroke-opacity", function(o) {
-			 thisOpacity = opacity;
-					 connected.forEach(function(e) {
-							 if(o.source === e || o.target === e) {
-									 thisOpacity = 1;
-							 }
-					 });
-					 return thisOpacity;
-				})
-				.style("stroke", function(o) {
-							 thisColor = color;
-							 connected.forEach(function(e) {
-									 if(o.source === e || o.target === e) {
-											 thisColor = "white";
-									 }
-							 });
-							 return thisColor;
-					 });
-
-			 };
-
-			 }
-}
 
 //update the position after each simulation tick
 function ticked() {
