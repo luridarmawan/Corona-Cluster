@@ -110,9 +110,18 @@ h4{
   font-family: sans-serif;
 }
 
-.form {
+.form-left {
   position:absolute;
   top: 0;
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 9pt;
+}
+
+.form-right {
+  position:absolute;
+  top: 0;
+  right: 0px
   font-family: "Lato", sans-serif;
   color: white;
   font-size: 9pt;
