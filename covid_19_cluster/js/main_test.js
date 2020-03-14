@@ -126,7 +126,7 @@ function forceAge() {
 	console.log(arrrange);
 
 	var scaleCat = d3.scaleLinear()
-	  .domain([0,10,20,30,40,50,60,70,80])
+	  .domain([0,80])
 	  .range(arrrange)
 
 	simulation.force("center")
