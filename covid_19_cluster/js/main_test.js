@@ -119,12 +119,12 @@ function forceCluster() {
 function forceAge() {
 
 	//width divider
-	var div = Math.max.apply(Math,graph.nodes.map(function(d){return d.umur;}));
+	var div = 9
 	console.log(div);
 	console.log(width);
 	var scale = width/div/1.5;
 	console.log(scale);
-	var arrdomain = Array.from(Array(9), (value, index) => (index+1));
+	var arrdomain = Array.from(Array(div), (value, index) => (index+1));
 	var arrrange = Array.from(Array(div), (value, index) => ((index+1)*scale));
 	console.log(arrrange);
 	console.log(arrdomain);
